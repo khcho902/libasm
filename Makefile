@@ -6,13 +6,13 @@
 #    By: kycho <kycho@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/14 23:22:41 by kycho             #+#    #+#              #
-#    Updated: 2021/01/14 23:56:41 by kycho            ###   ########.fr        #
+#    Updated: 2021/01/15 00:36:51 by kycho            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libasm.a
 
-SRCS = ft_strlen.s
+SRCS = ft_strlen.s ft_strcpy.s
 
 OBJS = $(SRCS:.s=.o)
 
