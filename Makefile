@@ -6,7 +6,7 @@
 #    By: kycho <kycho@student.42seoul.kr>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/14 23:22:41 by kycho             #+#    #+#              #
-#    Updated: 2021/01/15 12:15:17 by kycho            ###   ########.fr        #
+#    Updated: 2021/01/15 23:06:30 by kycho            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,10 @@ OBJS = $(SRCS:.s=.o)
 
 AS = nasm
 ASFLAGS = -f macho64
-
 LIBC = ar -rcs
+
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -f
 
@@ -35,8 +37,12 @@ clean :
 	$(RM) $(OBJS)
 
 fclean : clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) test
 
 re : fclean all
 
-.PHONY : all clean fclean re .s.o
+test : re
+	$(CC) $(CFLAGS) -o test test.c $(NAME)
+	./test
+
+.PHONY : all clean fclean re test .s.o
